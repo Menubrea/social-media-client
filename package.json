@@ -43,6 +43,6 @@
       "eslint --cache --fix",
       "jest"
     ],
-    "*.{js, css, md, JSON}": "prettier --write"
+    "*.{js, css, scss, md, JSON}": "prettier --write"
   }
 }
