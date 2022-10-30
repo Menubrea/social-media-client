@@ -39,7 +39,7 @@
   },
   "homepage": "https://github.com/ClovesPirate/social-media-client#readme",
   "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write"
+    "*.js": ["eslint --cache --fix", "jest"],
+    "*.{js, css, md, JSON}": "prettier --write"
   }
 }
