@@ -1,7 +1,7 @@
 export const profileThumbnail = (profile) => {
   const element = document.createElement('a');
   element.classList.add('profile', 'thumbnail');
-  element.href = `/?view=profile&name=${profile.name}`;
+  element.href = `./?view=profile&name=${profile.name}`;
   const img = new Image();
   img.src =
     profile.avatar ||
