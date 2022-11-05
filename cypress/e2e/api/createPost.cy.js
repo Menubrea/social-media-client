@@ -17,6 +17,7 @@ describe('Social Media Client: Testing Create Post Form:', () => {
   });
 
   it('CAN validate title based on API restrictions', () => {
+    cy.wait(500)
     // Title is a required string value.
     cy.get("form [name='title']").should('exist'); // Left empty
     // Tags should be an optional array of strings.
@@ -33,6 +34,7 @@ describe('Social Media Client: Testing Create Post Form:', () => {
   });
 
   it('CAN validate media based on API restrictions', () => {
+    cy.wait(500)
     // Title is a required string value.
     cy.get("form [name='title']").should('exist').type('test');
     // Tags should be an optional array of strings.
