@@ -11,7 +11,7 @@
             "env": { "jest/globals": true },
             "plugins": ["jest"],
             "extends": ["plugin:jest/recommended"],
-            "rules": { "jest/prefer-expect-assertions": "off", "no-undef": "off" }
+            "rules": { "jest/prefer-expect-assertions": "off", "no-undef": "off", "jest/no-conditional-expect": "off" }
           }
     ],
     "parserOptions": {
