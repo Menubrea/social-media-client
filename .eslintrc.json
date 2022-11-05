@@ -8,10 +8,10 @@
     "overrides": [
         {
             "files": ["**/*.test.js"],
-            "env": { "jest": true, "jest/globals": true },
+            "env": { "jest/globals": true },
             "plugins": ["jest"],
             "extends": ["plugin:jest/recommended"],
-            "rules": { "jest/prefer-expect-assertions": "off" }
+            "rules": { "jest/prefer-expect-assertions": "off", "no-undef": "off" }
           }
     ],
     "parserOptions": {
