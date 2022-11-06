@@ -1,45 +1,53 @@
-describe('Social Media Client: Testing login functionality and form', () => {
+describe('Social Media Client: Testing Client', () => {
   beforeEach(() => {
     cy.clearLocalStorage();
-    cy.visit('index.html');
-    cy.wait(600);
-    cy.get('button').contains('Close').click({ force: true });
-    cy.get("header [data-auth='login']").click({ force: true });
-    cy.wait(600);
+    cy.visit('/').wait(500);
+
+    cy.get("form [data-auth='login']")
+      .contains('Login')
+      .should('not.be.hidden')
+      .click()
+      .wait(500);
   });
 
   it('CAN successfully log in a valid user', () => {
-    cy.get("[id='loginForm'] input[type='email']")
-      .should('exist')
-      .type(`menubreacypress@noroff.no`);
+    cy.get("[id='loginForm']");
+    cy.get("[id='loginForm'] input[type='email']").type(
+      `menubreacypress@noroff.no`,
+      { delay: 100 }
+    );
+
     cy.get("[id='loginForm'] input[type='password']")
-      .should('exist')
-      .type(`12345678{enter}`);
-    cy.wait(600);
+      .should('not.be.disabled')
+      .type(`12345678{enter}`, { delay: 100 });
+
     cy.url().should('include', 'profile');
   });
 
   it('CAN successfully log out user', () => {
     cy.get("[id='loginForm'] input[type='email']")
-      .should('exist')
-      .type(`menubreacypress@noroff.no`);
+      .should('not.be.disabled')
+      .type(`menubreacypress@noroff.no`, { delay: 100 });
+
     cy.get("[id='loginForm'] input[type='password']")
+      .should('not.be.disabled')
+      .type(`12345678{enter}`, { delay: 100 })
+      .wait(200);
+    cy.get("header [data-auth='logout']")
       .should('exist')
-      .type(`12345678{enter}`);
-    cy.wait(600);
-    cy.get("header [data-auth='logout']").should('exist').click();
+      .click({ force: true });
     cy.url().should('not.include', 'profile');
   });
 
   it('CAN validate user input based on API restrictions', () => {
     // The email value must be a valid stud.noroff.no or noroff.no email address.
     cy.get("[id='loginForm'] input[type='email']")
-      .should('exist')
-      .type(`cypress@test.no`);
-    // The password value must be at least 8 characters.
+      .should('not.be.disabled')
+      .type(`menubreacypress@test.no`, { delay: 100 });
+
     cy.get("[id='loginForm'] input[type='password']")
-      .should('exist')
-      .type(`123{enter}`);
-    cy.wait(600);
+      .should('not.be.disabled')
+      .type(`123{enter}`, { delay: 100 });
+    cy.url().should('include', 'profile');
   });
 });
