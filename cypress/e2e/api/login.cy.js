@@ -7,24 +7,27 @@ describe('Social Media Client: Testing Client', () => {
       .contains('Login')
       .should('not.be.hidden')
       .click()
-      .wait(500);
+      .wait(850);
+  });
+
+  it('CAN reload', () => {
+    cy.reload();
   });
 
   it('CAN successfully log in a valid user', () => {
-    cy.get("[id='loginForm']");
-    cy.get("[id='loginForm'] input[type='email']").type(
-      `menubreacypress@noroff.no`,
-      { delay: 100 }
-    );
+    cy.get("form#loginForm input[type='email']")
+      .should('not.be.disabled')
+      .type(`menubreacypress@noroff.no`, { delay: 100 });
 
     cy.get("[id='loginForm'] input[type='password']")
       .should('not.be.disabled')
-      .type(`12345678{enter}`, { delay: 100 });
+      .type(`12345678{enter}`, { delay: 100 })
+      .wait(200);
 
     cy.url().should('include', 'profile');
   });
 
-  it('CAN successfully log out user', () => {
+  it('CAN successfully log out user through logout button', () => {
     cy.get("[id='loginForm'] input[type='email']")
       .should('not.be.disabled')
       .type(`menubreacypress@noroff.no`, { delay: 100 });
@@ -36,7 +39,7 @@ describe('Social Media Client: Testing Client', () => {
     cy.get("header [data-auth='logout']")
       .should('exist')
       .click({ force: true });
-    cy.url().should('not.include', 'profile');
+    cy.url().should('not.include', 'profile').and('not.include', 'name');
   });
 
   it('CAN validate user input based on API restrictions', () => {
@@ -44,7 +47,7 @@ describe('Social Media Client: Testing Client', () => {
     cy.get("[id='loginForm'] input[type='email']")
       .should('not.be.disabled')
       .type(`menubreacypress@test.no`, { delay: 100 });
-
+    // The password value must be minimum 8 character in length.
     cy.get("[id='loginForm'] input[type='password']")
       .should('not.be.disabled')
       .type(`123{enter}`, { delay: 100 });

@@ -7,22 +7,22 @@ describe('Social Media Client: Testing Create Post Form:', () => {
       .contains('Login')
       .should('not.be.hidden')
       .click()
-      .wait(500);
+      .wait(1000);
 
-    cy.get("[id='loginForm']");
-    cy.get("[id='loginForm'] input[type='email']")
+    cy.get("#loginForm input[type='email']")
       .should('not.be.disabled')
-      .type(`menubreacypress@noroff.no`, { delay: 100 });
+      .type('menubreacypress@noroff.no', { delay: 100, force: true });
 
-    cy.get("[id='loginForm'] input[type='password']")
+    cy.get("#loginForm input[type='password']")
       .should('not.be.disabled')
-      .type(`12345678{enter}`, { delay: 100 })
+      .type('12345678{enter}', { delay: 100, force: true })
       .wait(500);
 
     cy.get("[id='footerActions'] a")
       .contains('New Post')
       .should('exist')
-      .click({ force: true });
+      .click({ force: true })
+      .wait(500);
   });
 
   it('CAN validate TITLE based on API restrictions', () => {
