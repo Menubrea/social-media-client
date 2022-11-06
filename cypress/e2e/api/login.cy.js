@@ -1,4 +1,4 @@
-describe('Social Media Client: Testing Client', () => {
+describe('Social Media Client: Testing login authentication', () => {
   beforeEach(() => {
     cy.clearLocalStorage();
     cy.visit('/').wait(500);
