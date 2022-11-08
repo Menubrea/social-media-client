@@ -15,22 +15,10 @@ jobs:
       - name: Set up NodeJS
         uses: actions/setup-node@v1
         with:
-          node-version: 16
+          node-version: 16.17
 
-      - name: Install all dependencies
-        run: npm install
-
-      - name: Run build
-        run: npm run build
-
-      - name: Start server
-        run: npm run start
-
-      - name: Run Cypress test
-        run: npm run test-e2e-cli
-
-      # - name: run cypress tests with electron
-      #   uses: cypress-io/github-action@v4
-      #   with:
-      #     start: npm start
-      #     browser: electron
+      - name: run cypress tests with electron
+        uses: cypress-io/github-action@v4
+        with:
+          start: npm start
+          browser: electron
