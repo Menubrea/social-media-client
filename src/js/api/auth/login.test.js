@@ -55,20 +55,23 @@ const invalid_credentials = {
 const profile = {
   name: 'string',
   email: valid_credentials.email,
-  accessToken: 'string',
+  accessToken: 'JWT',
   banner: 'string',
   avatar: 'string',
 };
 
 describe('Login', () => {
   it('Returns a valid token when provided with valid credentials', async () => {
+    expect(storage.load('token')).toEqual(null);
     global.fetch = jest.fn(() => fetchSuccess());
     const { email, password } = valid_credentials;
     await login(email, password);
-    expect(storage.load('token')).toEqual('string');
+    expect(storage.load('token')).toEqual('JWT');
+    storage.remove('profile');
   });
 
   it('Returns a valid profile when provided with valid credentials', async () => {
+    expect(storage.load('profile')).toEqual(null);
     global.fetch = jest.fn(() => fetchSuccess());
     const { email, password } = valid_credentials;
     await login(email, password);
