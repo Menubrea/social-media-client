@@ -13,10 +13,6 @@ describe('Social Media Client: Testing Create Post-Form validation:', () => {
       .wait(850);
   });
 
-  it('CAN reload', () => {
-    cy.reload();
-  });
-
   it('CAN validate TITLE based on API restrictions', () => {
     cy.get("#loginForm input[type='email']")
       .should('not.be.hidden')
