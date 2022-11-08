@@ -19,7 +19,7 @@ jobs:
         run: npm run build
 
       - name: Run local server
-        run: npm run start
+        run: npm start
 
       - name: run cypress tests with electron
         uses: cypress-io/github-action@v4
