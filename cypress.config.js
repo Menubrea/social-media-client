@@ -2,9 +2,16 @@ const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
   projectId: 'mfrvmv',
-  pageLoadTimeout: 1000000000,
-  requestTimeout: 10000000000,
+  video: false,
+  env: {
+    // Default test account - change values if you would like to run a different account
+    email: 'menubreacypress@noroff.no',
+    password: '12345678',
+    //
+    faulty_email: 'menubreacypress@test.no',
+    faulty_password: '1234',
+  },
   e2e: {
-    baseUrl: 'http://127.0.0.1:5500',
+    baseUrl: 'http://127.0.0.1:8080',
   },
 });

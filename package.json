@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "sass src/scss:dist/css",
-    "start": "sass --watch src/scss:dist/css & live-server",
+    "start": "live-server",
+    "watch": "sass --watch src/scss:dist/css & live-server",
     "lint": "eslint src/**/*.js",
     "lint-fix": "eslint src/**/*.js --cache --fix",
     "test": "npm run test-unit && npm run test-e2e-cli",
@@ -20,7 +21,7 @@
   "devDependencies": {
     "@babel/core": "^7.19.3",
     "@babel/preset-env": "^7.19.4",
-    "cypress": "^10.7.0",
+    "cypress": "^10.11.0",
     "eslint": "^8.26.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-jest": "^27.1.3",
@@ -43,9 +44,10 @@
   },
   "homepage": "https://github.com/ClovesPirate/social-media-client#readme",
   "lint-staged": {
-    "*.js": [
+    "**/*.js": [
       "eslint --cache --fix"
     ],
-    "*.{js, css, scss, md, JSON}": "prettier --write"
+    "**/*.{js, css, scss, md, json}": "prettier --write",
+    "**/*.test.js": "jest"
   }
 }
