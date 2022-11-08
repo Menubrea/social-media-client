@@ -7,7 +7,7 @@ module.exports = defineConfig({
   env: {
     email: 'menubreacypress@noroff.no',
     password: '12345678',
-    faulty_email: 'menubreacypress',
+    faulty_email: 'menubreacypress@test.no',
     faulty_password: '1234',
   },
   e2e: {
