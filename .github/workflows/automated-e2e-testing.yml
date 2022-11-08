@@ -28,5 +28,3 @@ jobs:
 
       - name: Run tests
         run: npm run test-e2e-cli
-        with:
-          browser: electron
