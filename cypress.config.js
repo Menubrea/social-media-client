@@ -2,6 +2,7 @@ const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
   projectId: 'mfrvmv',
+  video: false,
   env: {
     // Default test account - change values if you would like to run a different account
     email: 'menubreacypress@noroff.no',
