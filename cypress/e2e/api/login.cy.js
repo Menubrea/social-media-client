@@ -1,4 +1,4 @@
-describe('Social Media Client: Testing login authentication', () => {
+describe('Social Media Client: Testing login-form validation', () => {
   const email = Cypress.env('email');
   const password = Cypress.env('password');
   const faultyEmail = Cypress.env('faulty_email');
@@ -32,7 +32,7 @@ describe('Social Media Client: Testing login authentication', () => {
     cy.url().should('include', 'profile');
   });
 
-  it('CAN successfully log out user through logout button', () => {
+  it('CAN successfully log out user', () => {
     cy.get("[id='loginForm'] input[type='email']")
       .should('not.be.disabled')
       .type(email, { delay: 100 });
@@ -47,7 +47,7 @@ describe('Social Media Client: Testing login authentication', () => {
       .click({ force: true })
       .wait(200);
 
-    cy.url().should('not.include', 'profile').and('not.include', 'name');
+    cy.url().should('not.include', 'profile');
   });
 
   it('CAN validate user input based on API restrictions', () => {
