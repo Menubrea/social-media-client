@@ -30,8 +30,7 @@ describe('Social Media Client: Testing Create Post-Form validation:', () => {
     cy.get("[id='footerActions'] a")
       .contains('New Post')
       .should('exist')
-      .click({ force: true })
-      .wait(200);
+      .click({ force: true });
     // Title is a required string value - left empty to test validation.
 
     // Tags should be an optional array of strings.
