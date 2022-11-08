@@ -1,4 +1,4 @@
-describe('Social Media Client: Testing Create Post Form:', () => {
+describe('Social Media Client: Testing Create Post-Form validation:', () => {
   const email = Cypress.env('email');
   const password = Cypress.env('password');
 
@@ -10,8 +10,14 @@ describe('Social Media Client: Testing Create Post Form:', () => {
       .contains('Login')
       .should('not.be.hidden')
       .click()
-      .wait(1000);
+      .wait(850);
+  });
 
+  it('CAN reload', () => {
+    cy.reload();
+  });
+
+  it('CAN validate TITLE based on API restrictions', () => {
     cy.get("#loginForm input[type='email']")
       .should('not.be.hidden')
       .type(email, { delay: 100, force: true });
@@ -26,9 +32,6 @@ describe('Social Media Client: Testing Create Post Form:', () => {
       .should('exist')
       .click({ force: true })
       .wait(1000);
-  });
-
-  it('CAN validate TITLE based on API restrictions', () => {
     // Title is a required string value - left empty to test validation.
 
     // Tags should be an optional array of strings.
@@ -43,9 +46,26 @@ describe('Social Media Client: Testing Create Post Form:', () => {
     cy.get("form [name='body']").should('exist').type('test');
 
     cy.get("[id='postForm'] button").contains('Publish').click().wait(1000);
+
+    cy.url().should('not.include', 'postID');
   });
 
   it('CAN validate MEDIA based on API restrictions', () => {
+    cy.get("#loginForm input[type='email']")
+      .should('not.be.hidden')
+      .type(email, { delay: 100, force: true });
+
+    cy.get("#loginForm input[type='password']")
+      .should('not.be.hidden')
+      .type(`${password}{enter}`, { delay: 100, force: true })
+      .wait(500);
+
+    cy.get("[id='footerActions'] a")
+      .contains('New Post')
+      .should('exist')
+      .click({ force: true })
+      .wait(1000);
+
     // Title is a required string value.
     cy.get("form [name='title']").should('exist').type('test');
 
@@ -59,5 +79,7 @@ describe('Social Media Client: Testing Create Post Form:', () => {
     cy.get("form [name='body']").should('exist').type('test');
 
     cy.get("[id='postForm'] button").contains('Publish').click();
+
+    cy.url().should('not.include', 'postID');
   });
 });
