@@ -35,20 +35,33 @@ The following features must be automatically tested with end-to-end tests:
 If there are bugs, concerns or problems with the repository you are working on, make sure to list these as issues using the Issues tab in the repository. It is not your responsibility to resolve these issues but they must be logged if discovered.
 
 ## Installation
+
 Clone repository
 
 #### Install dependencies
+
     npm i
 
 #### Build Sass
+
     npm run build
-    
+
 #### If you want to run live-server
+
     npm start
-    
+
 #### If you want to adjust styling
+
     npm run watch
-    
+
+#### To run E2E tests
+
+Register an account using the app from live-server
+
+1. Create an .env file in root directory, in a similar format to env.example.
+2. Replace credentials with your registered email and password
+3. `npm run test-e2e` or `npm run test-e2e-cli`
+
 #### Complete list of scripts further down
 
 ## Configuration
@@ -66,11 +79,12 @@ Clone repository
     Live-Server
     Prettier
     Sass
-    
+    Dotenv
+
 #### Dependencies
-    
+
     Bootstrap-dark-5
-    
+
 #### Scripts
 
     "build": "sass src/scss:dist/css",
@@ -83,7 +97,7 @@ Clone repository
     "test-e2e": "cypress open",
     "test-e2e-cli": "cypress run",
     "prepare": "husky install"
-    
+
 #### Prettier custom config
 
 ```json
@@ -96,40 +110,43 @@ Clone repository
 
 ```json
 {
-    "env": {
-        "browser": true,
-        "es2021": true,
-        "node": true
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": "eslint:recommended",
+  "overrides": [
+    {
+      "files": ["**/*.cy.js"],
+      "env": { "cypress/globals": true },
+      "plugins": ["cypress"],
+      "extends": ["plugin:cypress/recommended"],
+      "rules": {
+        "cypress/no-unnecessary-waiting": "off",
+        "no-unused-vars": "off"
+      }
     },
-    "extends": "eslint:recommended",
-    "overrides": [
-        {
-            "files": ["**/*.cy.js"],
-            "env": { "cypress/globals": true },
-            "plugins": ["cypress"],
-            "extends": ["plugin:cypress/recommended"],
-            "rules": {
-              "cypress/no-unnecessary-waiting": "off",
-              "no-unused-vars": "off"
-            }
-        },
-        {
-            "files": ["**/*.test.js"],
-            "env": { "jest/globals": true },
-            "plugins": ["jest"],
-            "extends": ["plugin:jest/recommended"],
-            "rules": { "jest/prefer-expect-assertions": "off", "no-undef": "off", "jest/no-conditional-expect": "off" }
-          }
-    ],
-    "parserOptions": {
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
-    "rules": {
+    {
+      "files": ["**/*.test.js"],
+      "env": { "jest/globals": true },
+      "plugins": ["jest"],
+      "extends": ["plugin:jest/recommended"],
+      "rules": {
+        "jest/prefer-expect-assertions": "off",
+        "no-undef": "off",
+        "jest/no-conditional-expect": "off"
+      }
     }
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {}
 }
 ```
-    
+
 #### Pre-commit hooks
 
 ```json
@@ -141,6 +158,3 @@ Clone repository
     "**/*.test.js": "jest"
   }
 ```
-    
-
-

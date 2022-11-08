@@ -1,8 +1,6 @@
 describe('Social Media Client: Testing login-form validation', () => {
   const email = Cypress.env('email');
   const password = Cypress.env('password');
-  const faultyEmail = Cypress.env('faulty_email');
-  const faultyPassword = Cypress.env('faulty_password');
 
   beforeEach(() => {
     cy.clearLocalStorage();
@@ -50,11 +48,11 @@ describe('Social Media Client: Testing login-form validation', () => {
     // The email value must be a valid stud.noroff.no or noroff.no email address.
     cy.get("[id='loginForm'] input[type='email']")
       .should('not.be.disabled')
-      .type(faultyEmail, { delay: 100 });
+      .type('menubreacypress@test.no', { delay: 100 });
     // The password value must be minimum 8 character in length.
     cy.get("[id='loginForm'] input[type='password']")
       .should('not.be.disabled')
-      .type(`${faultyPassword}{enter}`, { delay: 100 })
+      .type(`1234{enter}`, { delay: 100 })
       .wait(1000);
 
     cy.url().should('include', 'profile');
