@@ -15,7 +15,7 @@ jobs:
       - name: Set up NodeJS
         uses: actions/setup-node@v1
         with:
-          node-version: 16.17
+          node-version: 16.17.0
 
       - name: run cypress tests with electron
         uses: cypress-io/github-action@v4
