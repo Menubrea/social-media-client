@@ -20,11 +20,7 @@ describe('Social Media Client: Testing Create Post-Form validation:', () => {
 
     cy.get("#loginForm input[type='password']")
       .type(`${password}{enter}`, { delay: 100, force: true })
-      .wait(500);
-  });
-
-  it('CAN reload', () => {
-    cy.reload();
+      .wait(1000);
   });
 
   it('CAN validate TITLE based on API restrictions', () => {
@@ -32,7 +28,7 @@ describe('Social Media Client: Testing Create Post-Form validation:', () => {
       .contains('New Post')
       .should('exist')
       .click({ force: true })
-      .wait(500);
+      .wait(2000);
 
     // Title is a required string value - left empty to test validation.
 
@@ -57,7 +53,7 @@ describe('Social Media Client: Testing Create Post-Form validation:', () => {
       .contains('New Post')
       .should('exist')
       .click({ force: true })
-      .wait(1000);
+      .wait(2000);
 
     // Title is a required string value.
     cy.get("form [name='title']").should('exist').type('test');

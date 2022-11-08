@@ -12,11 +12,7 @@ describe('Social Media Client: Testing login-form validation', () => {
       .contains('Login')
       .should('not.be.hidden')
       .click()
-      .wait(850);
-  });
-
-  it('CAN reload', () => {
-    cy.reload();
+      .wait(1000);
   });
 
   it('CAN successfully log in a valid user', () => {
@@ -27,7 +23,7 @@ describe('Social Media Client: Testing login-form validation', () => {
     cy.get("[id='loginForm'] input[type='password']")
       .should('not.be.disabled')
       .type(`${password}{enter}`, { delay: 100 })
-      .wait(200);
+      .wait(1000);
 
     cy.url().should('include', 'profile');
   });
@@ -40,12 +36,12 @@ describe('Social Media Client: Testing login-form validation', () => {
     cy.get("[id='loginForm'] input[type='password']")
       .should('not.be.disabled')
       .type(`${password}{enter}`, { delay: 100 })
-      .wait(200);
+      .wait(1000);
 
     cy.get("header [data-auth='logout']")
       .should('exist')
       .click({ force: true })
-      .wait(200);
+      .wait(1000);
 
     cy.url().should('not.include', 'profile');
   });
@@ -58,7 +54,9 @@ describe('Social Media Client: Testing login-form validation', () => {
     // The password value must be minimum 8 character in length.
     cy.get("[id='loginForm'] input[type='password']")
       .should('not.be.disabled')
-      .type(`${faultyPassword}{enter}`, { delay: 100 });
+      .type(`${faultyPassword}{enter}`, { delay: 100 })
+      .wait(1000);
+
     cy.url().should('include', 'profile');
   });
 });
