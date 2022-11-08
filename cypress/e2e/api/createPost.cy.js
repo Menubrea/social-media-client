@@ -11,7 +11,7 @@ describe('Social Media Client: Testing Create Post-Form validation:', () => {
       .contains('Login')
       .should('not.be.hidden')
       .click()
-      .wait(850);
+      .wait(1000);
 
     cy.get("#loginForm input[type='email']").type(email, {
       delay: 100,
@@ -21,8 +21,6 @@ describe('Social Media Client: Testing Create Post-Form validation:', () => {
     cy.get("#loginForm input[type='password']")
       .type(`${password}{enter}`, { delay: 100, force: true })
       .wait(500);
-
-    cy.visit('/');
   });
 
   it('CAN reload', () => {
