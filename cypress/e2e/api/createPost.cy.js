@@ -31,7 +31,7 @@ describe('Social Media Client: Testing Create Post-Form validation:', () => {
       .contains('New Post')
       .should('exist')
       .click({ force: true })
-      .wait(1000);
+      .wait(200);
     // Title is a required string value - left empty to test validation.
 
     // Tags should be an optional array of strings.
