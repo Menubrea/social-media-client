@@ -14,8 +14,8 @@ jobs:
 
       - name: Install Dependencies
         run: npm i
-      
-      -name: Build Sass
+
+      - name: Build Sass
         run: npm run build
 
       - name: run cypress tests with electron
