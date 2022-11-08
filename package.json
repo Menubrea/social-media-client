@@ -13,7 +13,7 @@
     "test-unit": "jest",
     "test-e2e": "cypress open",
     "test-e2e-cli": "cypress run",
-    "prepare": "husky install"
+    "prepare": "live-server"
   },
   "keywords": [],
   "author": "Truls Haakenstad <truls.haakenstad@outlook.com>",
