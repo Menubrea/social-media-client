@@ -13,6 +13,10 @@ describe('Social Media Client: Testing Create Post-Form validation:', () => {
       .wait(850);
   });
 
+  it('CAN reload', () => {
+    cy.reload();
+  });
+
   it('CAN validate TITLE based on API restrictions', () => {
     cy.get("#loginForm input[type='email']")
       .should('not.be.hidden')
@@ -26,7 +30,8 @@ describe('Social Media Client: Testing Create Post-Form validation:', () => {
     cy.get("[id='footerActions'] a")
       .contains('New Post')
       .should('exist')
-      .click({ force: true });
+      .click({ force: true })
+      .wait(1000);
     // Title is a required string value - left empty to test validation.
 
     // Tags should be an optional array of strings.
