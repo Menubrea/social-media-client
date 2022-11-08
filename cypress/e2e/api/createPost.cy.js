@@ -11,14 +11,14 @@ describe('Social Media Client: Testing Create Post-Form validation:', () => {
       .contains('Login')
       .should('not.be.hidden')
       .click()
-      .wait(1000);
+      .wait(850);
 
-    cy.get("input[type='email']:visible").type(email, {
+    cy.get("#loginForm input[type='email']").type(email, {
       delay: 100,
       force: true,
     });
 
-    cy.get("input[type='password']:visible")
+    cy.get("#loginForm input[type='password']")
       .type(`${password}{enter}`, { delay: 100, force: true })
       .wait(500);
 
