@@ -18,12 +18,9 @@ jobs:
       - name: Build Sass
         run: npm run build
 
-      - name: Run local server
-        run: npm start
-
       - name: run cypress tests with electron
         uses: cypress-io/github-action@v4
         with:
-          start: npm run test-e2e-cli
+          start: npm start & npm run test-e2e-cli
           wait-on: http://127.0.0.1:8080/
           browser: electron
