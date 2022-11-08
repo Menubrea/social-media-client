@@ -10,7 +10,7 @@ describe('Social Media Client: Testing Create Post Form:', () => {
       .contains('Login')
       .should('not.be.hidden')
       .click()
-      .wait(850);
+      .wait(1000);
 
     cy.get("#loginForm input[type='email']")
       .should('not.be.hidden')
