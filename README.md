@@ -63,9 +63,9 @@ Clone repository
 
 #### To run E2E tests
 
-Register an account using the app from live-server
+Register an account using the app from live-server, or use exisiting account.
 
-1. Create an .env file in root directory, in a similar format to env.example.
+1. Create an ```.env``` file in root directory, in the same format as ```env.example```.
 2. Replace credentials with your registered email and password
 3. `npm run test-e2e` or `npm run test-e2e-cli`
 
@@ -165,3 +165,35 @@ Register an account using the app from live-server
     "**/*.test.js": "jest"
   }
 ```
+
+## Tests
+
+#### E2E tests
+
+    cypress/e2e/createPost.cy.js
+    
+Testing create item form validation:
+   - Does the form successfully validate if a title* is provided
+   - Does the form successfully validate if media is provided in the correct format.
+
+    cypress/e2e/login.cy.js
+    
+Testing login validation
+   - Can the form successfully log in a valid user
+   - Can the application successfully log the user out
+   - Can the form successfully validate inputs based on API restrictions
+    
+#### Unit tests
+
+```src/api/auth/login.test.js```
+    
+- Does the login function successfully store token and profile to localstorage.
+   
+```src/api/auth/logout.test.js```
+    
+- Does the logout function successfully remove token and profile from localstorage.
+    
+```src/api/posts/create.test.js```
+
+- Does the create post function successfully create a new item on the server.
+
