@@ -33,17 +33,17 @@ describe('Social Media Client: Testing Create Post-Form validation:', () => {
     // Title is a required string value - left empty to test validation.
 
     // Tags should be an optional array of strings.
-    cy.get("[name='tags']").should('exist').type('test, testing');
+    cy.get("form [name='tags']").should('exist').type('test, testing');
 
     // Media should be an optional fully formed URL
-    cy.get("[name='media']")
+    cy.get("form [name='media']")
       .should('exist')
       .type('https://images.unsplash.com/photo-1453733190371-0a9bedd82893');
 
     // Body should be an optional string.
-    cy.get("[name='body']").should('exist').type('test');
+    cy.get("form [name='body']").should('exist').type('test');
 
-    cy.get('#postForm button').contains('Publish').click().wait(1000);
+    cy.get("[id='postForm'] button").contains('Publish').click().wait(1000);
 
     cy.url().should('not.include', 'postID');
   });
