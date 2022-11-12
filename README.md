@@ -1,10 +1,6 @@
 [![Automated E2E Testing](https://github.com/Menubrea/social-media-client/actions/workflows/automated-e2e-testing.yml/badge.svg?branch=workflow)](https://github.com/Menubrea/social-media-client/actions/workflows/automated-e2e-testing.yml)
 [![Automated Unit Testing](https://github.com/Menubrea/social-media-client/actions/workflows/automated-unit-testing.yml/badge.svg?branch=workflow)](https://github.com/Menubrea/social-media-client/actions/workflows/automated-unit-testing.yml)
 
-<h2>E2E Results</h2>
-<table><tr><th>Result</th><th>Passed :white_check_mark:</th><th>Failed :x:</th><th>Pending :hand:</th><th>Skipped :leftwards_arrow_with_hook:</th><th>Duration :clock8:</th></tr><tr><td>Failing :red_circle:</td><td>4</td><td>1</td><td>0</td><td>0</td><td>49.257s</td></tr></table>
-<a href="">
-
 # Project Brief
 
 In order to complete this task, you will need to select an existing JavaScript project that has:
@@ -75,22 +71,23 @@ Register an account using the app from live-server, or use exisiting account.
 
 #### The project has been updated with these dev-dependencies:
 
-    Babel
-    Cypress
-    ESLint
+![Babel](https://img.shields.io/badge/Babel-F9DC3e?style=for-the-badge&logo=babel&logoColor=black)
+![cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)
+![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
+![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
+![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
+    
     ESLint-plugin-cypress
     ESLint-plugin-jest
     Husky
-    Jest
     Lint-Staged
     Live-Server
     Prettier
-    Sass
     Dotenv
 
 #### Dependencies
 
-    Bootstrap-dark-5
+![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
 
 #### Scripts
 
