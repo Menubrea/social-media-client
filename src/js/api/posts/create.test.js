@@ -39,12 +39,12 @@ describe('CreatePost', () => {
     expect(post).toEqual(POST_ITEM);
   });
 
-  test('The create post function throws an error when provided with invalid data inputs', async () => {
+  it('throws a new error with value of statusText when provided with invalid data inputs', async () => {
     global.fetch = jest.fn(() => fetchFailure());
     try {
       await createPost(INVALID_POST_ITEM);
     } catch (e) {
-      expect(e).toEqual(e);
+      await expect(createPost).rejects.toThrow('Bad Request');
     }
   });
 });

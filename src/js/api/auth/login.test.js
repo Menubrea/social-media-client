@@ -78,13 +78,13 @@ describe('Login', () => {
     expect(storage.load('profile')).toEqual(profile);
   });
 
-  test('The login fetch function throws new error if provided with invalid credentials', async () => {
+  it('throws a new error with value of statusText if provided with invalid credentials', async () => {
     global.fetch = jest.fn(() => fetchFailure());
     const { email, password } = invalid_credentials;
     try {
       await login(email, password);
     } catch (e) {
-      expect(e).toEqual(e);
+      await expect(login).rejects.toThrow('Invalid email/password');
     }
   });
 });
