@@ -1,6 +1,6 @@
 {
   "name": "workflow-ca-truls",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "description": "Workflow CA for Truls Haakenstad",
   "main": "index.js",
   "scripts": {
