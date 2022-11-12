@@ -17,7 +17,9 @@ export const publicPostPage = async (post) => {
 
 export const postPage = async (postId) => {
   if (!isLoggedIn()) {
-    location.href = './';
+
+    location.href = "./"
+
   } else {
     const me = profile();
 
