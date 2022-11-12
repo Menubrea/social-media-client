@@ -16,7 +16,7 @@
     "prepare": "husky install"
   },
   "keywords": [],
-  "author": "Truls Haakenstad <truls.haakenstad@outlook.com>", "Noroff",
+  "author": "Truls Haakenstad <truls.haakenstad@outlook.com>",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.19.3",
