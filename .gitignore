@@ -2,3 +2,5 @@
 /dist
 .eslintcache
 .env
+.mp4
+/cypress/screenshots
