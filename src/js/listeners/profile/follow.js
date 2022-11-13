@@ -7,9 +7,9 @@ export async function followListener(event) {
   if (name) {
     try {
       await followProfile(name);
-      location.reload()
+      location.reload();
     } catch {
-      return alert("There was a problem following this profile");
+      return alert('There was a problem following this profile');
     }
   }
 }
