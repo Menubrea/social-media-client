@@ -7,8 +7,8 @@
     "build": "sass src/scss:dist/css",
     "start": "live-server",
     "watch": "sass --watch src/scss:dist/css & live-server",
-    "lint": "eslint src/**/*.js",
-    "lint-fix": "eslint src/**/*.js --cache --fix",
+    "lint": "eslint **/*.js",
+    "lint-fix": "eslint **/*.js --cache --fix",
     "test": "npm run test-unit && npm run test-e2e-cli",
     "test-unit": "jest",
     "test-e2e": "cypress open",
@@ -46,9 +46,17 @@
   "homepage": "https://github.com/ClovesPirate/social-media-client#readme",
   "lint-staged": {
     "**/*.js": [
-      "eslint --cache --fix"
+      "eslint --cache --fix",
+      "prettier --write"
     ],
-    "**/*.{js, css, scss, md, json}": "prettier --write",
-    "**/*.test.js": "jest"
+    "**/*.scss": [ 
+      "prettier --write"
+    ],
+    "**/*.html": [
+      "prettier --write"
+    ],
+    "**/*.test.js": [
+      "jest"
+    ]
   }
 }
