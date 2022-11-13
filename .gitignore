@@ -1,2 +1,6 @@
 /node_modules
 /dist
+.eslintcache
+.env
+.mp4
+/cypress/screenshots
