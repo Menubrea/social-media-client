@@ -13,7 +13,7 @@ describe('Social Media Client: Testing login-form validation', () => {
       .wait(1000);
   });
 
-  it('CAN successfully log in a valid user', () => {
+  it('CAN successfully log in and out a valid user', () => {
     cy.get("form#loginForm input[type='email']")
       .should('not.be.disabled')
       .type(email, { delay: 100 });
@@ -28,17 +28,6 @@ describe('Social Media Client: Testing login-form validation', () => {
     });
 
     cy.url().should('include', 'profile');
-  });
-
-  it('CAN successfully log out user', () => {
-    cy.get("[id='loginForm'] input[type='email']")
-      .should('not.be.disabled')
-      .type(email, { delay: 100 });
-
-    cy.get("[id='loginForm'] input[type='password']")
-      .should('not.be.disabled')
-      .type(`${password}{enter}`, { delay: 100 })
-      .wait(1000);
 
     cy.get("header [data-auth='logout']")
       .should('exist')
